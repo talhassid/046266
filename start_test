@@ -1,0 +1,10 @@
+#!/bin/bash
+
+flex hw1.lex
+gcc -ll hw1.yy.c
+./a.out < ‫‪example/example2-err.cmm‬‬ >& hw1-err.res  
+sdiff hw1-err.res example/example2-err.tokens
+#./a.out < example/example.cmm >& hw1.res  
+#sdiff hw1.res example/example.tokens 
+
+
