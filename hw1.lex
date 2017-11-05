@@ -2,6 +2,8 @@
 #include <stdio.h>
 void showToken(char *);
 void showTokenRes(char *);
+void showTokenStr(char *);
+void showTokenErr();
 %}
 
 %option yylineno noyywrap
@@ -10,7 +12,7 @@ void showTokenRes(char *);
 whitespace  ([\t\r\n ])
 id	    (([a-zA-Z])([0-9]|[a-zA-Z]|_)*)
 num	    ([0-9]+)
-str	    \"([^\r\n]|[^\n])*\"
+str	    \"([^\r\n]|[^\n])*[^\\]\"
 
 %%
 {num}     	            showToken("num");
@@ -28,7 +30,7 @@ else		  	    showTokenRes("else");
 return		  	    showTokenRes("return");
 {id}			    showToken("id");
 \(|\)|\{|\}|,|:|\;	    printf("%s",yytext);
-{str}			    showToken("str");
+{str}			    showTokenStr("str");
 {whitespace}                printf("%s",yytext);
 ==|<>|<|<=|>|>=		    showToken("relop");
 \+|-	   	   	    showToken("addop");
@@ -38,7 +40,7 @@ return		  	    showTokenRes("return");
 \|\|			    showToken("or");
 !			    showToken("not");
 #([^\r\n]|[^\n])*		    ;
-.                           printf("‫‪\nLexical‬‬ ‫‪error:‬‬ ‫‪'%s' ‫‪in‬‬ ‫‪line‬‬ ‫‪number‬‬ ‪%d\n",yytext,yylineno); exit(1);
+.                           showTokenErr();
 %%
 
 void showToken(char *name)
@@ -49,4 +51,15 @@ void showTokenRes(char *name)
 {
     printf("<%s>", name);
 }
-
+void showTokenStr(char *name)
+{
+    char string[yyleng-2];
+    memcpy (string,&yytext[1],yyleng-2);
+    string[yyleng-2]='\0';
+    printf("<%s,%s>", name, string);
+}
+void showTokenErr()
+{
+    printf("\nLexical error: '%s' in line number %d\n",yytext,yylineno);
+    exit(1);
+}
