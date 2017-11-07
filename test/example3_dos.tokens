@@ -1,0 +1,8 @@
+
+<void> <id,main>()
+{
+    <id,a>, <id,B> : <int16>;
+	<id,a> <assign,=> <num,2>;
+	<id,B> <assign,=><id,a><addop,+>(<int16>)<num,5>;
+	<write>(
+Lexical error: '"' in line number 7

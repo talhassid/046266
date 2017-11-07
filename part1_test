@@ -1,0 +1,25 @@
+#!/bin/bash
+
+flex part1.lex
+gcc -ll part1.c
+
+#test1
+./part1 < /home/talhassid/046266/example/example2-err.cmm > part1-err.res  
+if [[ `diff part1-err.res /home/talhassid/046266/example/example2-err.tokens` != '' ]];
+then
+  echo "test 1 fail";
+sdiff part1-err.res /home/talhassid/046266/example/example2-err.tokens
+fi  
+#test2
+./part1 < example/example.cmm >& part1.res  
+if [[ `diff part1.res example/example.tokens ` != '' ]];
+then
+  echo "test 2 fail";
+sdiff part1.res example/example.tokens 
+fi  
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+# This is an example
+void main()
+{
+    a, B : int16;
+	a = 2;
+	B =a+(int16)5;
+	write("This is \"a\":\n);
+	write(a);
+	if B<>1 then {
+        big_var : int32;
+	    big_var = (int32)a + (int32)B;
+        write(big_var);
+    }
+}

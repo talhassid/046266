@@ -1,0 +1,11 @@
+name=number lexeme=12 len(lexeme)=2
+name=email address lexeme=email@foo.com len(lexeme)=13
+name=number lexeme=11 len(lexeme)=2
+name=single-digit lexeme=1 len(lexeme)=1
+name=number lexeme=17 len(lexeme)=2
+name=word lexeme=someone len(lexeme)=7
+lex fails to recognize this (@)!
+name=word lexeme=goo len(lexeme)=3
+lex fails to recognize this (.)!
+name=word lexeme=net len(lexeme)=3
+name=number lexeme=99 len(lexeme)=2
