@@ -2,9 +2,11 @@
 void check(int16 a, int32 b){
 
 	#check string 
-	printf("we will check if we are recognizing this string %d.",num);
-	a=a+b;
+	printf("we will check if we are recognizing this string %d, and checking if int16 wont confuse our program .",num);
+	a=a+b; # we are summing a and b
+	printf ("mabye this not ! is going to confuse ??");
+	printf ("or this number 23456 that it is not a number it is part of a string ??");
 	if (a==b){
-		
+		\" not a sting " stil not \"
 	}
 }
