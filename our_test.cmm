@@ -1,0 +1,10 @@
+# this is a test
+void check(int16 a, int32 b){
+
+	#check string 
+	printf("we will check if we are recognizing this string %d.",num);
+	a=a+b;
+	if (a==b){
+		
+	}
+}

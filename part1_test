@@ -1,8 +1,5 @@
 #!/bin/bash
 
-flex part1.lex
-gcc -ll part1.c
-
 #test1
 ./part1 < /home/talhassid/046266/example/example2-err.cmm > part1-err.res  
 if [[ `diff part1-err.res /home/talhassid/046266/example/example2-err.tokens` != '' ]];
