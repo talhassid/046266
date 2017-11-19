@@ -13,7 +13,7 @@ part1.c part1.h: part1.lex
 clean:
 	rm -f part1 part1.c part1.h myoutput.txt
 
-test: flex_example1
+test: part1
 	./part1 < example/example.cmm > myoutput.txt
 	diff -u example/example.tokens myoutput.txt
 
